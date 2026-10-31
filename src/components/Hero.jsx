@@ -1,106 +1,130 @@
-function Hero({ darkMode }) {
+function Hero({ onViewProjects, onContact }) {
   return (
-    <main
-      id="home"
-      className="relative isolate overflow-hidden px-6 pb-20 pt-36 md:px-12 lg:px-20"
-    >
-      {/* Background decoration */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-1/4 -z-10 h-96 w-96 rounded-full bg-[#39ff88]/10 blur-[120px]"
-      />
-
-      {/* Shared content width */}
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-14 md:grid-cols-2 md:gap-12 lg:gap-16">
-        {/* Profile image — LEFT SIDE */}
-        <div className="order-1 flex justify-center md:justify-start">
-          <div className="relative mr-2 mt-2 sm:mr-4">
-            {/* Offset green frame */}
-            <div className="absolute -inset-3 rotate-3 rounded-[2rem] border border-[#39ff88]/50 transition-transform duration-500 hover:rotate-6" />
-
-            {/* Soft green glow */}
-            <div className="pointer-events-none absolute -bottom-10 -left-10 -z-10 h-40 w-40 rounded-full bg-[#39ff88]/20 blur-3xl" />
-
-            <img
-              src="/images/divinepic.jpeg"
-              alt="Divine — Frontend Developer"
-              className="relative h-[340px] w-[290px] rounded-[1.75rem] object-cover object-center shadow-2xl sm:h-[430px] sm:w-[350px] lg:h-[480px] lg:w-[390px]"
-            />
-
-            {/* Floating tech label */}
-            <div
-              className={`absolute -bottom-6 -left-5 rounded-2xl border p-4 shadow-xl backdrop-blur-xl sm:-left-10 sm:p-5 ${
-                darkMode
-                  ? "border-white/10 bg-[#211e1e]/95"
-                  : "border-gray-200 bg-white/95"
-              }`}
-            >
-              <p className="text-xs text-gray-500">My approach</p>
-              <p className="mt-1 font-bold">
-                React <span className="text-[#39ff88]">+</span> Creativity
-              </p>
-            </div>
-
-            {/* Decorative code badge */}
-            <div className="absolute -right-3 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#39ff88] text-xl font-bold text-[#151212] shadow-lg sm:-right-6 sm:h-14 sm:w-14">
-              {"</>"}
-            </div>
-          </div>
-        </div>
-
-        {/* Introduction — RIGHT SIDE */}
-        <div className="order-2">
-          <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#39ff88] sm:text-sm">
-            Frontend Developer
+    <section className="overflow-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
+      <div className="mx-auto grid w-full max-w-none grid-cols-1 items-center gap-14 px-5 py-14 sm:px-8 sm:py-20 md:min-h-[calc(100vh-96px)] md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:py-20 lg:grid-cols-2 lg:gap-24 lg:px-12 lg:py-24 xl:gap-28">
+        {/* Hero content */}
+        <div className="relative order-1 min-w-0">
+          <p className="mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-[var(--color-muted)] sm:mb-8 sm:text-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
+            LOGIC.DEV
           </p>
 
-          <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
-            I build digital experiences that{" "}
-            <span className="text-[#39ff88]">make sense.</span>
+          <h1 className="max-w-2xl text-5xl font-black leading-[1.05] tracking-[-0.055em] text-[var(--color-text)] sm:text-6xl lg:text-7xl xl:text-[76px]">
+            I build websites,
+            <br />
+            web apps &
+            <br />
+            <span className="text-[var(--color-accent)]">automations.</span>
           </h1>
 
-          <p
-            className={`mt-5 max-w-lg text-base leading-8 sm:text-lg ${
-              darkMode ? "text-gray-400" : "text-gray-600"
-            }`}
-          >
-            I'm Divine, a frontend developer focused on building useful,
-            intuitive web applications with React and modern web technologies. I
-            turn ideas into clean, functional experiences people enjoy using.
+          <p className="mt-7 max-w-lg text-base leading-7 text-[var(--color-muted)] sm:mt-8 sm:text-lg sm:leading-8">
+            Hi, I'm Logic, a frontend developer and AI automation enthusiast who
+            builds modern websites, web applications, and automation systems for
+            businesses and individuals. I create fast, clean, and easy-to-use
+            digital experiences that work smoothly across devices.
           </p>
 
           {/* Action buttons */}
-          <div className="mt-7 flex flex-wrap items-center gap-4">
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-3 rounded-full bg-[#39ff88] px-6 py-3.5 font-bold text-[#151212] transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#39ff88]/20 sm:px-7 sm:py-4"
+          <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
+            <button
+              onClick={onViewProjects}
+              className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-[var(--color-surface)] px-5 py-3 font-semibold text-[var(--color-text)] transition duration-300 hover:-translate-y-1 hover:opacity-80 sm:min-h-14 sm:gap-4 sm:px-7 sm:py-4"
             >
-              Explore my work
-            </a>
+              View My Work
+              <span className="text-xl text-[var(--color-accent)] transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </button>
 
-            <a
-              href="#contact"
-              className="rounded-full border border-current px-6 py-3.5 font-semibold transition duration-300 hover:border-[#39ff88] hover:text-[#39ff88] sm:px-7 sm:py-4"
+            <button
+              onClick={onContact}
+              className="inline-flex min-h-12 items-center gap-3 rounded-full border border-[var(--color-border)] px-5 py-3 font-semibold text-[var(--color-text)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 sm:min-h-14 sm:gap-4 sm:px-7 sm:py-4"
             >
-              Let's talk
-            </a>
+              Let's Work
+              <span className="text-lg text-[var(--color-accent)]">↗</span>
+            </button>
           </div>
 
-          {/* Personal statement */}
-          <div
-            className={`mt-7 flex items-center gap-3 text-sm ${
-              darkMode ? "text-gray-500" : "text-gray-500"
-            }`}
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#39ff88] opacity-50" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#39ff88]" />
-            </span>
-            Building useful products, one idea at a time.
+          {/* Quick details */}
+          <div className="mt-10 grid max-w-lg grid-cols-3 border-t border-[var(--color-border)] pt-6 sm:mt-14 sm:pt-7">
+            <div className="pr-2 sm:pr-4">
+              <h3 className="text-lg font-extrabold text-[var(--color-text)] sm:text-2xl">
+                React
+              </h3>
+              <p className="mt-2 text-[9px] font-bold tracking-wide text-[var(--color-muted)] sm:text-xs sm:tracking-wider">
+                CORE TOOL
+              </p>
+            </div>
+
+            <div className="border-l border-[var(--color-border)] px-3 sm:px-5">
+              <h3 className="text-lg font-extrabold text-[var(--color-text)] sm:text-2xl">
+                Frontend
+              </h3>
+              <p className="mt-2 text-[9px] font-bold tracking-wide text-[var(--color-muted)] sm:text-xs sm:tracking-wider">
+                WHAT I BUILD
+              </p>
+            </div>
+
+            <div className="border-l border-[var(--color-border)] pl-3 sm:pl-5">
+              <h3 className="text-lg font-extrabold text-[var(--color-text)] sm:text-2xl">
+                AI
+              </h3>
+              <p className="mt-2 text-[9px] font-bold tracking-wide text-[var(--color-muted)] sm:text-xs sm:tracking-wider">
+                WHAT I'M EXPLORING
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Portrait */}
+        <div className="relative order-2 mx-auto w-full max-w-[320px] sm:max-w-md md:max-w-none md:justify-self-end lg:max-w-[500px]">
+          {/* Decorative background shapes */}
+          <div className="absolute -inset-4 rotate-3 rounded-[2rem] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/[0.04] sm:-inset-5" />
+
+          <div className="absolute -inset-1 -rotate-2 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)]" />
+
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl shadow-black/30">
+            <img
+              src="/images/divinepic.jpeg"
+              alt="Logic, software developer"
+              className="aspect-[4/5] w-full object-cover object-center"
+            />
+
+            <div className="flex items-center justify-between gap-4 border-t border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-5 sm:px-7 sm:py-6">
+              <div>
+                <p className="text-xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-2xl">
+                  Logic
+                </p>
+                <p className="mt-1 text-sm text-[var(--color-muted)]">
+                  Software Developer
+                </p>
+              </div>
+
+              <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-3 py-2">
+                <span
+                  className="h-2 w-2 rounded-full bg-[var(--color-accent)]"
+                  aria-hidden="true"
+                />
+                <span className="text-xs font-semibold text-[var(--color-text)] sm:text-sm">
+                  Open to work
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating brand detail */}
+          <div className="absolute -bottom-9 -left-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 shadow-lg sm:-left-7 sm:px-5 sm:py-4">
+            <p className="text-xs font-bold tracking-wide text-[var(--color-muted)]">
+              MY APPROACH
+            </p>
+            <p className="mt-1 text-sm font-extrabold text-[var(--color-text)] sm:text-base">
+              Turning Logic Into Reality
+              <span className="text-[var(--color-accent)]">.</span>
+            </p>
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
 

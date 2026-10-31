@@ -1,140 +1,112 @@
-const projects = [
-  {
-    name: "Todo List Pro",
-    description:
-      "A productivity app for organizing tasks, tracking progress, and managing everyday work.",
-    stack: ["React", "Redux Toolkit", "Tailwind CSS"],
-    image: "/images/todo-list-pro.png",
-    demo: "https://to-do-list-pro-rust.vercel.app/",
-    number: "01",
-    category: "Productivity",
-  },
-  {
-    name: "Expense Tracker",
-    description:
-      "A personal finance application for recording expenses and keeping everyday spending organized.",
-    stack: ["React", "JavaScript"],
-    image: "/images/expense-tracker.png",
-    demo: "https://react-expense-tracker-mu-lime.vercel.app/",
-    number: "02",
-    category: "Finance",
-  },
-  {
-    name: "E-Commerce App",
-    description:
-      "An online shopping experience built with React, bringing product browsing and shopping UI together.",
-    stack: ["React", "JavaScript"],
-    image: "/images/codee-e-commerce.png",
-    demo: "https://codee-e-commerce.vercel.app/",
-    number: "03",
-    category: "E-Commerce",
-  },
-  {
-    name: "Admin Dashboard",
-    description:
-      "A management interface for organizing products, reviewing orders, and viewing customer information.",
-    stack: ["React", "JavaScript"],
-    image: "/images/admin-codee-dashboard.png",
-    demo: "https://admin-codee-dashboard.vercel.app/",
-    number: "04",
-    category: "Dashboard",
-  },
-];
+function Projects({ sectionRef }) {
+  const projects = [
+    {
+      name: "Admin Dashboard",
+      category: "DASHBOARD UI",
+      description:
+        "An admin dashboard interface that presents information in an organized layout for easier monitoring and navigation.",
+      technologies: ["React", "JavaScript", "CSS"],
+      image: "/images/admin-codee-dashboard.png",
+      liveUrl: "https://admin-codee-dashboard.vercel.app/",
+      githubUrl: "",
+    },
+    {
+      name: "E-Commerce App",
+      category: "E-COMMERCE",
+      description:
+        "An online shopping interface designed to make browsing products simple and intuitive.",
+      technologies: ["React", "JavaScript", "CSS"],
+      image: "/images/codee-e-commerce.png",
+      liveUrl: "https://codee-e-commerce.vercel.app/",
+      githubUrl: "",
+    },
+    {
+      name: "Todo List Pro",
+      category: "PRODUCTIVITY APP",
+      description:
+        "A task management application with priorities, search, filters, task editing, and dark mode.",
+      technologies: ["React", "Redux Toolkit", "Tailwind CSS"],
+      image: "/images/todo-list-pro.png",
+      liveUrl: "https://to-do-list-pro-rust.vercel.app/",
+      githubUrl: "https://github.com/code0e/to-do-list-pro",
+    },
+    {
+      name: "Expense Tracker",
+      category: "FINANCE APP",
+      description:
+        "A web application for tracking expenses and presenting personal spending information.",
+      technologies: ["React", "JavaScript", "CSS"],
+      image: "/images/expense-tracker.png",
+      liveUrl: "https://react-expense-tracker-mu-lime.vercel.app/",
+      githubUrl: "",
+    },
+  ];
 
-function Projects({ darkMode }) {
   return (
-    <section id="projects" className="px-6 py-28 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-7xl">
+    <section
+      ref={sectionRef}
+      className="bg-[var(--color-bg)] px-5 py-20 text-[var(--color-text)] sm:px-8 sm:py-24 lg:px-12 lg:py-28"
+    >
+      <div className="mx-auto w-full max-w-none">
         {/* Section heading */}
-        <div className="mb-14">
-          <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#39ff88] sm:text-sm">
-            Selected work
+        <div className="max-w-2xl">
+          <p className="mb-4 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-[var(--color-muted)] sm:text-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
+            SELECTED WORK
           </p>
 
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <h2 className="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Ideas turned into{" "}
-              <span className="text-[#39ff88]">real products.</span>
-            </h2>
+          <h2 className="text-4xl font-black tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+            Projects I've Built
+            <span className="text-[var(--color-accent)]">.</span>
+          </h2>
 
-            <p
-              className={`max-w-md text-base leading-8 ${
-                darkMode ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              A selection of projects built through practical problem-solving,
-              thoughtful interfaces, and hands-on development.
-            </p>
-          </div>
+          <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)] sm:text-lg sm:leading-8">
+            A selection of projects where I've put my skills into practice and
+            turned ideas into working applications.
+          </p>
         </div>
 
         {/* Project cards */}
-        <div className="grid gap-7 md:grid-cols-2">
-          {projects.map((project) => (
+        <div className="mt-12 grid gap-6 sm:mt-16 md:grid-cols-2 lg:gap-8">
+          {projects.map((project, index) => (
             <article
-              key={project.number}
-              className={`group overflow-hidden rounded-3xl border transition duration-300 hover:-translate-y-1 hover:border-[#39ff88]/50 ${
-                darkMode
-                  ? "border-white/10 bg-white/[0.03] hover:bg-white/[0.05]"
-                  : "border-gray-200 bg-gray-50 hover:bg-white hover:shadow-2xl hover:shadow-gray-200/60"
-              }`}
+              key={project.name}
+              className="group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent)]/60 hover:shadow-xl hover:shadow-black/[0.05]"
             >
-              {/* Screenshot */}
-              <div className="relative overflow-hidden border-b border-current/5">
-                <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#39ff88]" />
-                  {project.category}
+              {/* Project preview */}
+              <div className="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+                <div className="absolute left-4 top-4 z-10 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/90 px-3 py-1.5 text-[10px] font-bold tracking-wider text-[var(--color-text)] backdrop-blur sm:left-5 sm:top-5">
+                  PROJECT 0{index + 1}
                 </div>
 
                 <img
                   src={project.image}
                   alt={`${project.name} application screenshot`}
+                  className="aspect-[16/10] w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
                   loading="lazy"
-                  className="aspect-[16/10] w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
                 />
               </div>
 
               {/* Project details */}
               <div className="p-6 sm:p-8">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[#39ff88]">
-                      PROJECT / {project.number}
-                    </p>
+                <p className="text-xs font-bold tracking-[0.16em] text-[var(--color-muted)]">
+                  {project.category}
+                </p>
 
-                    <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                      {project.name}
-                    </h3>
-                  </div>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+                  {project.name}
+                </h3>
 
-                  <span
-                    className={`mt-1 text-2xl transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#39ff88] ${
-                      darkMode ? "text-gray-600" : "text-gray-400"
-                    }`}
-                    aria-hidden="true"
-                  >
-                    ↗
-                  </span>
-                </div>
-
-                <p
-                  className={`mt-4 max-w-xl text-sm leading-7 sm:text-base ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
                   {project.description}
                 </p>
 
-                {/* Technology tags */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.stack.map((technology) => (
+                {/* Technologies */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => (
                     <span
                       key={technology}
-                      className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
-                        darkMode
-                          ? "border-white/10 bg-white/[0.04] text-gray-300"
-                          : "border-gray-200 bg-white text-gray-700"
-                      }`}
+                      className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text)]"
                     >
                       {technology}
                     </span>
@@ -142,26 +114,26 @@ function Projects({ darkMode }) {
                 </div>
 
                 {/* Project links */}
-                <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-current/10 pt-6">
+                <div className="mt-7 flex flex-wrap items-center gap-5 border-t border-[var(--color-border)] pt-5">
                   <a
-                    href={project.demo}
+                    href={project.liveUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#39ff88] px-5 py-2.5 text-sm font-semibold text-[#151212] transition duration-300 hover:shadow-lg hover:shadow-[#39ff88]/20"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-[var(--color-accent-foreground)] transition hover:opacity-80"
                   >
-                    Live Demo
+                    Live Preview
+                    <span>↗</span>
                   </a>
 
-                  {project.github && (
+                  {project.githubUrl && (
                     <a
-                      href={project.github}
+                      href={project.githubUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition hover:border-[#39ff88] hover:text-[#39ff88] ${
-                        darkMode ? "border-white/15" : "border-gray-300"
-                      }`}
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text)] transition hover:text-[var(--color-accent)]"
                     >
-                      GitHub <span aria-hidden="true">↗</span>
+                      Source Code
+                      <span className="text-[var(--color-accent)]">↗</span>
                     </a>
                   )}
                 </div>
@@ -170,15 +142,13 @@ function Projects({ darkMode }) {
           ))}
         </div>
 
-        {/* Closing line */}
-        <p
-          className={`mt-12 text-center text-sm leading-7 ${
-            darkMode ? "text-gray-500" : "text-gray-500"
-          }`}
-        >
-          Every project is another opportunity to solve a problem and build
-          something useful.
-        </p>
+        {/* Closing note */}
+        <div className="mt-12 border-t border-[var(--color-border)] pt-7 sm:mt-16">
+          <p className="text-sm leading-7 text-[var(--color-muted)]">
+            Every project is another opportunity to learn, experiment, and build
+            better digital experiences.
+          </p>
+        </div>
       </div>
     </section>
   );

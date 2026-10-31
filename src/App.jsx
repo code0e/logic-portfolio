@@ -1,42 +1,47 @@
-import { useState, useEffect } from "react";
+import { useRef } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem("darkMode");
-    return savedTheme === null ? false : savedTheme === "true";
-  });
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
 
-  useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
-
-  function toggleTheme() {
-    setDarkMode(!darkMode);
+  function scrollToSection(sectionRef) {
+    sectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   }
 
   return (
-    <div
-      className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${
-        darkMode ? "bg-[#151212] text-white" : "bg-white text-gray-900"
-      }`}
-    >
-      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+    <div className="app">
+      <Navbar
+        onNavigate={{
+          about: () => scrollToSection(aboutRef),
+          skills: () => scrollToSection(skillsRef),
+          projects: () => scrollToSection(projectsRef),
+          contact: () => scrollToSection(contactRef),
+        }}
+      />
 
-      <Hero darkMode={darkMode} />
+      <Hero
+        onViewProjects={() => scrollToSection(projectsRef)}
+        onContact={() => scrollToSection(contactRef)}
+      />
 
-      <About darkMode={darkMode} />
+      <About sectionRef={aboutRef} />
+      <Skills sectionRef={skillsRef} />
+      <Projects sectionRef={projectsRef} />
+      <Contact sectionRef={contactRef} />
 
-      <Projects darkMode={darkMode} />
-
-      <Contact darkMode={darkMode} />
-
-      <Footer darkMode={darkMode} />
+      <Footer />
     </div>
   );
 }

@@ -1,153 +1,129 @@
-function About({ darkMode }) {
-  const technologies = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Redux Toolkit",
-    "Tailwind CSS",
-    "Git",
-    "GitHub",
+function About({ sectionRef }) {
+  const socialLinks = [
+    {
+      name: "GitHub",
+      url: "https://github.com/code0e",
+    },
+    {
+      name: "X",
+      url: "https://x.com/code0e",
+    },
+    {
+      name: "Email",
+      url: "mailto:codee025@gmail.com",
+    },
+  ];
+
+  const highlights = [
+    {
+      title: "Frontend Development",
+      description:
+        "Building responsive websites and interactive web applications.",
+    },
+    {
+      title: "React",
+      description:
+        "Working with React, Redux Toolkit, and modern frontend tools.",
+    },
+    {
+      title: "Problem Solving",
+      description: "Turning ideas into practical digital experiences.",
+    },
+    {
+      title: "Future Focus",
+      description: "Growing toward backend development, AI, and automation.",
+    },
   ];
 
   return (
-    <section id="about" className="px-6 py-28 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-7xl">
+    <section
+      ref={sectionRef}
+      className="bg-[var(--color-bg)] px-5 py-20 text-[var(--color-text)] sm:px-8 sm:py-24 lg:px-12 lg:py-28"
+    >
+      <div className="mx-auto w-full max-w-none">
         {/* Section heading */}
-        <div className="mb-14">
-          <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#39ff88] sm:text-sm">
-            About me
+        <div className="max-w-2xl">
+          <p className="mb-4 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-[var(--color-muted)] sm:text-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-accent)]" />
+            GET TO KNOW ME
           </p>
 
-          <h2 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            More than writing code.
-            <span className="block text-[#39ff88]">Building with purpose.</span>
+          <h2 className="text-4xl font-black tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+            More About Logic
+            <span className="text-[var(--color-accent)]">.</span>
           </h2>
+
+          <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)] sm:text-lg sm:leading-8">
+            A little about who I am, what I build, and where I'm headed.
+          </p>
         </div>
 
         {/* About content */}
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-          <div className="space-y-6">
-            <p
-              className={`text-lg leading-8 ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}
-            >
-              I'm Divine, a frontend developer who enjoys turning ideas into
-              practical, intuitive web experiences. I focus on building
-              interfaces that look good, work smoothly, and make sense to the
-              people using them.
-            </p>
-
-            <p
-              className={`leading-8 ${
-                darkMode ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              Working with React has strengthened the way I approach building
-              applications.. breaking interfaces into components, managing
-              state, and thinking through how different parts of a product fit
-              together. I enjoy tackling problems and finding clearer ways to
-              solve them.
-            </p>
-
-            <p
-              className={`leading-8 ${
-                darkMode ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              I'm continuing to expand my skills toward full-stack development,
-              with a focus on writing maintainable code and creating products
-              that solve real problems.
-            </p>
-
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-3 pt-2 font-semibold transition hover:text-[#39ff88]"
-            >
-              See what I've built
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-          </div>
-
-          {/* Developer philosophy card */}
-          <div
-            className={`relative overflow-hidden rounded-3xl border p-7 sm:p-9 ${
-              darkMode
-                ? "border-white/10 bg-white/[0.03]"
-                : "border-gray-200 bg-gray-50"
-            }`}
-          >
-            <div
-              aria-hidden="true"
-              className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-[#39ff88]/10 blur-3xl"
-            />
-
-            <p className="relative text-xs font-semibold uppercase tracking-[0.3em] text-[#39ff88]">
-              My approach
-            </p>
-
-            <h3 className="relative mt-5 text-2xl font-bold leading-snug sm:text-3xl">
-              Understand the problem. Build the solution. Keep improving.
+        <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-2 md:gap-16 lg:gap-24">
+          {/* Biography */}
+          <div>
+            <h3 className="text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+              Curiosity is where I start.
             </h3>
 
-            <p
-              className={`relative mt-5 leading-7 ${
-                darkMode ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              I believe good development combines thoughtful problem-solving,
-              attention to detail, and a willingness to keep learning through
-              real projects.
-            </p>
+            <div className="mt-6 space-y-5 text-base leading-8 text-[var(--color-muted)]">
+              <p>
+                I didn't get into development just to write code. I got into it
+                because I wanted to understand how digital products work and how
+                ideas become something people can use.
+              </p>
 
-            <div className="relative mt-8 border-t border-current/10 pt-6">
-              <p className="text-sm font-semibold">What I value</p>
+              <p>
+                These days, I'm building with JavaScript, React, Redux Toolkit,
+                and Tailwind CSS. Every project is an opportunity to learn
+                something new, solve a problem, and get better at my craft.
+              </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {["Clean code", "Usability", "Consistency", "Growth"].map(
-                  (value) => (
-                    <span
-                      key={value}
-                      className={`rounded-full border px-3 py-2 text-xs font-medium ${
-                        darkMode
-                          ? "border-white/10 text-gray-300"
-                          : "border-gray-200 bg-white text-gray-700"
-                      }`}
-                    >
-                      {value}
-                    </span>
-                  ),
-                )}
-              </div>
+              <p>
+                I'm working toward becoming a full-stack developer, with Python,
+                AI, and automation on my learning path. This portfolio is part
+                of that journey and the work will keep evolving.
+              </p>
+            </div>
+
+            {/* Social links */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target={social.name === "Email" ? undefined : "_blank"}
+                  rel={social.name === "Email" ? undefined : "noreferrer"}
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] transition duration-300 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10"
+                >
+                  {social.name}
+                  <span className="text-[var(--color-accent)]">↗</span>
+                </a>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Technologies */}
-        <div className="mt-20 border-t border-current/10 pt-10">
-          <p
-            className={`text-sm font-medium ${
-              darkMode ? "text-gray-400" : "text-gray-600"
-            }`}
-          >
-            Technologies I work with
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            {technologies.map((technology) => (
-              <span
-                key={technology}
-                className={`rounded-xl border px-4 py-3 text-sm font-medium transition duration-300 hover:border-[#39ff88] hover:text-[#39ff88] ${
-                  darkMode
-                    ? "border-white/10 bg-white/[0.03] text-gray-300"
-                    : "border-gray-200 bg-white text-gray-700"
-                }`}
+          {/* Highlights */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {highlights.map((item, index) => (
+              <article
+                key={item.title}
+                className="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent)]/60 hover:shadow-lg hover:shadow-black/[0.04] sm:p-7"
               >
-                {technology}
-              </span>
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-bg)] text-sm font-bold text-[var(--color-text)] transition group-hover:bg-[var(--color-border)]">
+                  <span className="text-[var(--color-accent)]">
+                    0{index + 1}
+                  </span>
+                </span>
+
+                <h3 className="mt-6 text-lg font-bold text-[var(--color-text)]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
