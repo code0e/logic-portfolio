@@ -5,7 +5,7 @@ export const experience: ExperienceItem[] = [
     organization: "Apex Tech Hub",
     role: "Software Development Intern (SIWES)",
     description:
-      "Frontend and backend development during internship and SIWES placements — building interfaces, working with APIs, and shipping practical features.",
+      "Frontend and backend development during internship and SIWES placements. building interfaces, working with APIs, and shipping practical features.",
     kind: "work",
   },
   {
